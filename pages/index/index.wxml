@@ -1,14 +1,35 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-    111
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-tab">
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+      <view class="weui-tab__panel">
+        <view class="weui-tab__content" >
+         <view class='pullmask' hidden='{{!isTop}}'></view>
+          <scroll-view scroll-y="auto" style="height: {{wH}}px" class="page-body-info" bindscrolltolower="loadmore" bindscroll="doScrollTop">
+            <view class="weui-panel mycontent" wx:for="{{mydata}}" wx:key="{{index}}" style="height:200px">
+              <view class="weui-panel__bd" >
+                <view>
+                  <text class="page-body-text">内容{{index}}</text>
+
+                </view>
+              </view>
+
+            </view>
+            --我是底部--
+          </scroll-view>
+
+
+
+        </view>
+      
+      </view>
+    </view>
   </view>
 </view>

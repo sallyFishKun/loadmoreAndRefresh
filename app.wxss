@@ -1,3 +1,5 @@
+@import 'style/weui.wxss';
+
 /**app.wxss**/
 .container {
   height: 100%;
@@ -8,3 +10,8 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+page{
+    background-color: #F8F8F8;
+    font-size: 16px;
+    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+}
