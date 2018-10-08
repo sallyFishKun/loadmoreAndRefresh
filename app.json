@@ -1,14 +1,16 @@
 {
-  "pages":[
+  "pages": [
+    "pages/home/index",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/testcomponents/index"
+    
   ],
-  "window":{
-      "navigationBarTextStyle": "black",
-      "backgroundTextStyle": "light",
-      "navigationBarBackgroundColor": "#fff",
-      "navigationBarTitleText": "上拉下刷",
-      "backgroundColor": "#999",
-      "enablePullDownRefresh": false
+  "window": {
+    "navigationBarTextStyle": "black",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "上拉下刷",
+    "backgroundColor": "#999",
+    "enablePullDownRefresh": false
   }
 }

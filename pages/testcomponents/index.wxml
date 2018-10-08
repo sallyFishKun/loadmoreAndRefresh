@@ -1,0 +1,15 @@
+<!--pages/testcomponents/index.wxml-->
+<view class='page'>
+<page-index   bind:onloadmore="onloadmore" loadmoreing="{{loadmoreing}}" len="{{mydata.length}}" wH="{{wH}}" >
+<view class="weui-panel mycontent" wx:for="{{mydata}}" wx:key="{{index}}" style="height:200px" >
+      <view class="weui-panel__bd">
+        <view>
+          <text class="page-body-text">内容{{index}} len {{mydata.length}}</text>
+
+        </view>
+      </view>
+
+    </view>
+
+</page-index>
+</view>

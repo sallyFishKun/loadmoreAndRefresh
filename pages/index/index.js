@@ -14,9 +14,9 @@ Page({
     wH: 500,
     mydata:[],
     isTop: true, //滚动条顶部
-    loadMore: false,
+    loadMore: true,
     topNum: 0
-  },
+  }, 
   onLoad: function () {
     if (this.data.topNum != 0) {
       this.setData({ topNum: 0 })
@@ -49,6 +49,7 @@ Page({
       title: 'loading...',
       icon: 'loading'
     })
+   
     let self = this;
     setTimeout(() => {
       pageIndex++;

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "组件之上拉下刷",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "page-index": "../../../components/pageIndex/pageIndex"
+  }
+}

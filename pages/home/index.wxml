@@ -1,0 +1,5 @@
+<!--pages/home/index.wxml-->
+<view style="margin:50% 10%">
+<button style="margin-bottom:20px" bindtap='goNav' data-index="0">navbar上拉下刷</button>
+<button bindtap='goNav' data-index="1">组件之上拉下刷</button>
+</view>

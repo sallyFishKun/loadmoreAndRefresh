@@ -1,0 +1,11 @@
+<!--components/pageIndex.wxml-->
+<view >
+  <view class='pullmask' hidden='{{!isTop}}'></view> 
+   <scroll-view scroll-y="auto" scroll-top="{{topNum}}" style="height: {{wH}}px" class="page-body-info" bindscrolltolower="sloadmore" bindscroll="doScrollTop">
+   <slot></slot>
+    {{loadMore}}
+    <i-load-more wx:if="{{loadmoreing}}" />
+    <i-load-more wx:if="{{!loadmoreing}}" tip="{{len==0?'暂无数据':'我是底部'}}" loading="{{ false }}" />
+  </scroll-view> 
+
+</view>

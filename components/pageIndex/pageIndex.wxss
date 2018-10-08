@@ -1,0 +1,22 @@
+/* components/pageIndex.wxss */
+page,
+weui-tab__content{
+    height: 100%;
+    padding: 0
+}
+.weui-navbar{
+  background: #fff;
+}
+
+.weui-tab__content{
+    padding-top: 10px;
+    /* text-align: center; */
+}
+.pullmask{
+  position: absolute;
+  height: 300rpx;
+  width: 100%;
+  background: green;
+  z-index: 30;
+  opacity:0;
+}
