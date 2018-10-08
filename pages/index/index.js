@@ -12,10 +12,15 @@ Page({
     sliderOffset: 0,
     sliderLeft: 0,
     wH: 500,
-    mydata:[0,1,2,3],
+    mydata:[],
     isTop: true, //滚动条顶部
+    loadMore: false,
+    topNum: 0
   },
   onLoad: function () {
+    if (this.data.topNum != 0) {
+      this.setData({ topNum: 0 })
+    }
     var that = this;
     wx.getSystemInfo({
       success: function (res) {
@@ -25,14 +30,18 @@ Page({
           sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
         });
       }
+     
     });
-  
+    this.onPullDownRefresh2();
   },
   /**
   * 页面相关事件处理函数--监听用户下拉动作
   */
   onPullDownRefresh: function () {
-
+    this.onPullDownRefresh2()
+    
+  },
+  onPullDownRefresh2(){
     isRefesh = true;
     isloadmore = false;
     istop = false;
@@ -83,10 +92,14 @@ Page({
     wx.showLoading({
       title: 'loading',
     })
+    isloadmore = true;
+    
+    self.setData({
+      loadMore: isloadmore,
+    })
     setTimeout(() => {
       pageIndex++;
       
-      isloadmore = true;
       self.getData();
      
     }, 2000)
@@ -104,12 +117,24 @@ Page({
       }
     }
     this.setData({
+      loadMore:false,
       mydata
     })
     isRefesh = false;
     isloadmore = false;
   },
   tabClick: function (e) {
+    if (this.data.topNum != 0) {
+      this.setData({ topNum: 0 })
+    }
+    let id = e.currentTarget.id
+    if(id==1){
+      this.setData({
+        mydata:[]
+      })
+    }else{
+      this.onPullDownRefresh2();
+    }
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.id

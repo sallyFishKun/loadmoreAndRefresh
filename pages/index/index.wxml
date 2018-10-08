@@ -12,17 +12,18 @@
       <view class="weui-tab__panel">
         <view class="weui-tab__content" >
          <view class='pullmask' hidden='{{!isTop}}'></view>
-          <scroll-view scroll-y="auto" style="height: {{wH}}px" class="page-body-info" bindscrolltolower="loadmore" bindscroll="doScrollTop">
+          <scroll-view scroll-y="auto" scroll-top="{{topNum}}" style="height: {{wH}}px" class="page-body-info" bindscrolltolower="loadmore" bindscroll="doScrollTop">
             <view class="weui-panel mycontent" wx:for="{{mydata}}" wx:key="{{index}}" style="height:200px">
               <view class="weui-panel__bd" >
                 <view>
-                  <text class="page-body-text">内容{{index}}</text>
+                  <text class="page-body-text">内容{{index}} len {{mydata.length}}</text>
 
                 </view>
               </view>
 
             </view>
-            --我是底部--
+              <i-load-more wx:if="{{loadMore}}" />
+            <i-load-more wx:if="{{!loadMore}}" tip="{{mydata.length==0?'暂无数据':'我是底部'}}" loading="{{ false }}" i-class="myload" />
           </scroll-view>
 
 
